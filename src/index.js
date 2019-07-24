@@ -1,10 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import MapView from 'react-native-maps';
+
 import { View } from 'react-native';
 
-export default class index extends Component {
-  render() {
-    return (
-      <View />
-    );
-  }
-}
+const App = () => (
+  <View style={{ flex: 1 }}>
+    <MapView
+      style={{ flex: 1 }}
+      region={{ 
+        latitude: 37.785834,
+        longitude: -122.406417,
+        latitudeDelta: 0.0143,
+        longitudeDelta: 0.0134
+       }}
+       showsUserLocation
+       loadingEnabled
+    />
+  </View>
+);
+
+export default App;
