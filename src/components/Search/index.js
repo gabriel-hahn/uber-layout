@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Platform } from 'react-native';
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import React, { Component } from "react";
+import { Platform } from "react-native";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
 const searchStyles = {
   container: {
@@ -60,7 +60,7 @@ const searchStyles = {
 export default class Search extends Component {
   render() {
     return (
-      <GooglePlacesAutocomplete 
+      <GooglePlacesAutocomplete
         placeholder="Where to?"
         placeholderTextColor="#333"
         onPress={(data, details) => {
