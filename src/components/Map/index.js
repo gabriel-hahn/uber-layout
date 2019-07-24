@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import MapView from 'react-native-maps';
 
+import Search from '../Search';
+
 class Map extends Component {
   state = {
     region: {
-      latitude: -28.7069013,
-      longitude: -49.416115,
+      latitude: 37.785834,
+      longitude: -122.406417,
       latitudeDelta: 0.0143,
       longitudeDelta: 0.0134
     }
@@ -46,6 +48,8 @@ class Map extends Component {
           showsUserLocation
           loadingEnabled
         />
+
+        <Search />
       </View>
     );
   }
