@@ -3,6 +3,8 @@ import { View } from 'react-native';
 import MapView from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 
+import { getPixelSize } from '../../utils/Platform';
+
 import Search from '../Search';
 import Directions from '../Directions';
 
@@ -60,13 +62,21 @@ class Map extends Component {
           region={region}
           showsUserLocation
           loadingEnabled
+          ref={el => (this.mapView = el)}
         >
           { destination && (
             <Directions 
               origin={region}
               destination={destination}
-              onReady={() => {
-                
+              onReady={result => {
+                this.mapView.fitToCoordinates(result.coordinates, {
+                  edgePadding: {
+                    right: getPixelSize(50),
+                    left: getPixelSize(50),
+                    top: getPixelSize(50),
+                    bottom: getPixelSize(50)
+                  }
+                })
               }}
             />
           ) }

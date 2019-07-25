@@ -58,7 +58,12 @@ const searchStyles = {
 };
 
 class Search extends Component {
+  state = {
+    searchFocused: false,
+  };
+
   render() {
+    const { searchFocused } = this.state;
     const { onLocationSelected } = this.props;
 
     return (
@@ -71,9 +76,12 @@ class Search extends Component {
           language: 'en',
         }}
         textInputProps={{
+          onFocus: () => { this.setState({ searchFocused: true }) },
+          onBlur: () => { this.setState({ searchFocused: false }) },
           autoCapitalize: 'none',
           autoCorrect: false,
         }}
+        listViewDisplayed={searchFocused}
         fetchDetails
         enablePoweredByContainer={false}
         styles={searchStyles}
