@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { View } from "react-native";
-import MapView from "react-native-maps";
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import MapView from 'react-native-maps';
 
-import Search from "../Search";
+import Search from '../Search';
 
 class Map extends Component {
   state = {
@@ -10,8 +10,8 @@ class Map extends Component {
       latitude: 37.785834,
       longitude: -122.406417,
       latitudeDelta: 0.0143,
-      longitudeDelta: 0.0134
-    }
+      longitudeDelta: 0.0134,
+    },
   };
 
   async componentDidMount() {
@@ -23,16 +23,16 @@ class Map extends Component {
               latitude,
               longitude,
               latitudeDelta: 0.0143,
-              longitudeDelta: 0.0134
-            }
+              longitudeDelta: 0.0134,
+            },
           });
         },
         () => {},
         {
           timeout: 2000,
           enableHighAccuracy: true,
-          maximumAge: 1000
-        }
+          maximumAge: 1000,
+        },
       );
     }
   }

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Platform } from "react-native";
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import React from 'react';
+import { Platform } from 'react-native';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 const searchStyles = {
   container: {
@@ -57,9 +57,7 @@ const searchStyles = {
   }
 };
 
-export default class Search extends Component {
-  render() {
-    return (
+const Search = () => (
       <GooglePlacesAutocomplete
         placeholder="Where to?"
         placeholderTextColor="#333"
@@ -67,17 +65,17 @@ export default class Search extends Component {
           console.log(data, details);
         }}
         query={{
-          key: "AIzaSyDUcFUW16Rizs1N4fA2dFFCu5CbxWWRPe0",
-          language: "en"
+          key: 'AIzaSyDUcFUW16Rizs1N4fA2dFFCu5CbxWWRPe0',
+          language: 'en',
         }}
         textInputProps={{
-          autoCapitalize: "none",
-          autoCorrect: false
+          autoCapitalize: 'none',
+          autoCorrect: false,
         }}
         fetchDetails
         enablePoweredByContainer={false}
         styles={searchStyles}
       />
-    );
-  }
-}
+);
+
+export default Search;
