@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import MapView from 'react-native-maps';
+import Geolocation from '@react-native-community/geolocation';
 
 import Search from '../Search';
 
 class Map extends Component {
   state = {
     region: {
-      latitude: 37.785834,
-      longitude: -122.406417,
+      latitude: -28.6978046,
+      longitude: -49.4075402,
       latitudeDelta: 0.0143,
       longitudeDelta: 0.0134,
     },
   };
 
-  async componentDidMount() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async ({ coords: { latitude, longitude } }) => {
-          this.setState({
-            region: {
-              latitude,
-              longitude,
-              latitudeDelta: 0.0143,
-              longitudeDelta: 0.0134,
-            },
-          });
-        },
-        () => {},
-        {
-          timeout: 2000,
-          enableHighAccuracy: true,
-          maximumAge: 1000,
-        },
-      );
-    }
+  componentDidMount() {
+    Geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        this.setState({
+          region: {
+            latitude,
+            longitude,
+            latitudeDelta: 0.0143,
+            longitudeDelta: 0.0134,
+          },
+        });
+      },
+      () => {},
+      {
+        timeout: 2000,
+        enableHighAccuracy: true,
+        maximumAge: 1000,
+      }
+    )
   }
 
   render() {
