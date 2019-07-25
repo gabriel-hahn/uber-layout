@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
@@ -57,13 +57,15 @@ const searchStyles = {
   }
 };
 
-const Search = () => (
+class Search extends Component {
+  render() {
+    const { onLocationSelected } = this.props;
+
+    return (
       <GooglePlacesAutocomplete
         placeholder="Where to?"
         placeholderTextColor="#333"
-        onPress={(data, details) => {
-          console.log(data, details);
-        }}
+        onPress={onLocationSelected}
         query={{
           key: 'AIzaSyDUcFUW16Rizs1N4fA2dFFCu5CbxWWRPe0',
           language: 'en',
@@ -76,6 +78,8 @@ const Search = () => (
         enablePoweredByContainer={false}
         styles={searchStyles}
       />
-);
+    );
+  }
+}
 
 export default Search;

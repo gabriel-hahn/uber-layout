@@ -4,6 +4,7 @@ import MapView from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 
 import Search from '../Search';
+import Directions from '../Directions';
 
 class Map extends Component {
   state = {
@@ -13,6 +14,7 @@ class Map extends Component {
       latitudeDelta: 0.0143,
       longitudeDelta: 0.0134,
     },
+    destination: null,
   };
 
   componentDidMount() {
@@ -36,8 +38,20 @@ class Map extends Component {
     )
   }
 
+  handleLocationSelected = (data, { geometry }) => {
+    const { location: { lat: latitude, lng: longitude } } = geometry;
+
+    this.setState({
+      destination: {
+        latitude,
+        longitude,
+        title: data.structured_formatting.main_text,
+      }
+    })
+  }
+
   render() {
-    const { region } = this.state;
+    const { region, destination } = this.state;
 
     return (
       <View style={{ flex: 1 }}>
@@ -46,8 +60,18 @@ class Map extends Component {
           region={region}
           showsUserLocation
           loadingEnabled
-        />
-        <Search />
+        >
+          { destination && (
+            <Directions 
+              origin={region}
+              destination={destination}
+              onReady={() => {
+                
+              }}
+            />
+          ) }
+        </MapView>
+        <Search onLocationSelected={this.handleLocationSelected} />
       </View>
     );
   }
