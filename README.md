@@ -1,6 +1,6 @@
 # Uber
 
- React Native Uber layout clone. This project simulates a simple trip in the Uber application :blue_car:
+React Native Uber clone. This project simulates a trip in the Uber application, using the user current localization and directions module from React Native to create the route :blue_car:
  
  ## Getting Started
 
