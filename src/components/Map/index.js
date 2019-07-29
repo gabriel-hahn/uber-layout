@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import Geocoder from 'react-native-geocoding';
@@ -11,8 +11,10 @@ import Directions from '../Directions';
 import Details from '../Details';
 
 import markerImage from '../../assets/marker.png';
+import backImage from '../../assets/back.png';
 
-import { 
+import {
+  Back,
   LocationBox,
   LocationText,
   LocationTimeBox,
@@ -70,7 +72,11 @@ class Map extends Component {
         longitude,
         title: data.structured_formatting.main_text,
       }
-    })
+    });
+  }
+
+  handleBack = () => {
+    this.setState({ destination: null });
   }
 
   render() {
@@ -130,7 +136,12 @@ class Map extends Component {
         </MapView>
 
         { destination 
-          ? <Details /> 
+          ? <>
+              <Back onPress={this.handleBack}>
+                <Image source={backImage} />
+              </Back>
+              <Details />
+            </>
           : <Search onLocationSelected={this.handleLocationSelected} /> }
       </View>
     );
