@@ -10,6 +10,14 @@ import Directions from '../Directions';
 
 import markerImage from '../../assets/marker.png';
 
+import { 
+  LocationBox,
+  LocationText,
+  LocationTimeBox,
+  LocationTimeText,
+  LocationTimeTextSmall
+} from './styles';
+
 class Map extends Component {
   state = {
     region: {
@@ -86,7 +94,24 @@ class Map extends Component {
                 coordinate={destination}
                 anchor={{ x: 0, y: 0 }}
                 image={markerImage}
-              />
+              >
+                <LocationBox>
+                  <LocationText>{destination.title}</LocationText>
+                </LocationBox>
+              </Marker>
+
+              <Marker 
+                coordinate={region}
+                anchor={{ x: 0, y: 0 }}
+              >
+                <LocationBox>
+                  <LocationTimeBox>
+                    <LocationTimeText>31</LocationTimeText>
+                    <LocationTimeTextSmall>MIN</LocationTimeTextSmall>
+                  </LocationTimeBox>
+                  <LocationText>R. João Paes</LocationText>
+                </LocationBox>
+              </Marker>
             </>
           ) }
         </MapView>
