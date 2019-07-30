@@ -6,7 +6,7 @@ React Native Uber clone. This project simulates a trip in the Uber application, 
  
 You need to create a [Google Cloud Platform API Key](https://console.cloud.google.com) to use maps and autocomplete features. Use this key in the project.
 
-The API key used in this project was already excluded, it was only a example. You can use a .env file as well.
+The API key used in this project was already excluded, it was only a example. You can use a .env file.
 
 To install all dependencies, you need to run the following command:
 
