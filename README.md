@@ -1,5 +1,7 @@
 # Uber
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8fd81d9d766049409fb72dd25ac00fa6)](https://www.codacy.com/manual/gabriel_hahn/uber-layout?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gabriel-hahn/uber-layout&amp;utm_campaign=Badge_Grade)
+
 React Native Uber clone. This project simulates a trip in the Uber application, using the user current localization and directions module from React Native to create the route :blue_car:
  
  ## Getting Started
